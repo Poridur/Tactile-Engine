@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
 
-namespace TactileGame.Debug_Monitor
+namespace ANB_Test.Debug_Monitor
 {
     /// <summary>
     /// Example control inherits from GraphicsDeviceControl, which allows it to

@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace TactileGame
+namespace ANB_Test
 {
     class Update_Checker : Tactile.IUpdateService
     {

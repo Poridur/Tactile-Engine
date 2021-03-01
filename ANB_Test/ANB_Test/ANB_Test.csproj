@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TactileGame</RootNamespace>
-    <AssemblyName>TactileGame</AssemblyName>
+    <RootNamespace>ANB_Test</RootNamespace>
+    <AssemblyName>ANB_Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -186,8 +186,8 @@
       <Project>{35a635fd-7621-4db8-aef1-dcab317198c0}</Project>
       <Name>TactileConfig</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TactileGameContent\TactileGameContent.contentproj">
-      <Name>TactileGameContent</Name>
+    <ProjectReference Include="..\ANB_TestContent\ANB_TestContent.contentproj">
+      <Name>ANB_TestContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{3B113AA2-92B6-42D4-AD75-C78052A6163F}</Project>
     </ProjectReference>

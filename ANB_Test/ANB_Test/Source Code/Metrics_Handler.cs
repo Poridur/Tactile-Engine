@@ -4,7 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 
-namespace TactileGame
+namespace ANB_Test
 {
     enum OperatingSystems { Windows, OSX, Android, Linux }
 

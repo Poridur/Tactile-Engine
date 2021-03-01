@@ -8,9 +8,9 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TactileGame")]
-[assembly: AssemblyProduct("TactileGame")]
-[assembly: AssemblyDescription("Tactile Default Game")]
+[assembly: AssemblyTitle("ANB_Test")]
+[assembly: AssemblyProduct("ANB_Test")]
+[assembly: AssemblyDescription("ANB_Test")]
 [assembly: AssemblyCompany("www.bwdyeti.com")]
 [assembly: AssemblyCopyright("Copyright © bwdyeti.com 2020")]
 [assembly: AssemblyTrademark("")]

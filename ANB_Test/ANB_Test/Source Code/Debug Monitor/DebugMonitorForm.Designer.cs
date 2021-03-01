@@ -1,5 +1,5 @@
 ﻿#if DEBUGMONITOR
-namespace TactileGame.Debug_Monitor
+namespace ANB_Test.Debug_Monitor
 {
     partial class DebugMonitorForm
     {

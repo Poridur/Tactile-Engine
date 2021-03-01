@@ -14,10 +14,10 @@ using System.IO;
 #endif
 #endif
 
-namespace TactileGame
+namespace ANB_Test
 {
 #if __ANDROID__
-	[Activity(Label = "TactileGame", 
+	[Activity(Label = "ANB_Test", 
 		MainLauncher = true, 
 		Icon ="@drawable/icon",
 		ConfigurationChanges=ConfigChanges.Orientation|ConfigChanges.Keyboard|ConfigChanges.KeyboardHidden)]
@@ -27,7 +27,7 @@ namespace TactileGame
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-			TactileGame.Game1.Activity = this;
+			ANB_Test.Game1.Activity = this;
 			Game1.STATUS_BAR_HEIGHT = getStatusBarHeight();
             g = new Game1(new string[0]);
 
@@ -63,7 +63,7 @@ namespace TactileGame
 using MonoMac.AppKit;
 using MonoMac.Foundation;
 
-namespace TactileGame
+namespace ANB_Test
 {
 	class Program
 	{

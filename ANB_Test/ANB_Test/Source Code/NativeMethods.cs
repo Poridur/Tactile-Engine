@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace TactileGame
+namespace ANB_Test
 {
     internal static class NativeMethods
     {

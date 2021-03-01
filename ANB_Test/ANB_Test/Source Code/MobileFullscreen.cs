@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace TactileGame
+namespace ANB_Test
 {
     class MobileFullscreenService : Tactile.Rendering.IFullscreenService
     {

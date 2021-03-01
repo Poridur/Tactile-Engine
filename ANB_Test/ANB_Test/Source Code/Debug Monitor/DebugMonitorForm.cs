@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TactileGame.Debug_Monitor
+namespace ANB_Test.Debug_Monitor
 {
     public partial class DebugMonitorForm : Form
     {

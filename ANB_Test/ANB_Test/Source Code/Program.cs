@@ -14,10 +14,10 @@ using System.IO;
 #endif
 #endif
 
-namespace TactileGame
+namespace ANB_Test
 {
 #if __ANDROID__
-    [Activity(Label = "TactileGame"
+    [Activity(Label = "ANB_Test"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
@@ -69,7 +69,7 @@ namespace TactileGame
 using MonoMac.AppKit;
 using MonoMac.Foundation;
 
-namespace TactileGame
+namespace ANB_Test
 {
 	class Program
 	{

@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 
-namespace TactileGame
+namespace ANB_Test
 {
     class NetConnection
     {

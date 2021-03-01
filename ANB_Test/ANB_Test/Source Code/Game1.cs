@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Tactile;
 
-namespace TactileGame
+namespace ANB_Test
 {
     public class Game1 : Game
     {
