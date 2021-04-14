@@ -60,7 +60,8 @@ namespace Tactile.Menus.Title
                 Global.Content.Load<Texture2D>(@"Graphics/Pictures/Portrait_bg"));
             NameBanner.src_rect = new Rectangle(0, 114 + 25 * 0, 93, 25);
             NameBanner.loc = FaceWindow.loc + new Vector2(FaceWindow.width / 2 - 48, FaceWindow.height);
-            NameBanner.draw_offset = new Vector2(2, 0);
+            NameBanner.draw_offset = new Vector2(2, 0); //Poridur new evtl: * Matrix.CreateScale(2f)
+            
             // Name
             Name = new TextSprite(
                 Config.UI_FONT, Global.Content, "White",

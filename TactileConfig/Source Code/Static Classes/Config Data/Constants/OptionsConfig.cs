@@ -48,8 +48,8 @@ namespace Tactile.Constants
                 new OptionsSetting( 0, "ON", "Set Chapter Goal display"),
                 new OptionsSetting(23, "OFF", "Set Chapter Goal display") }},
             new OptionsData { Label = "Grid",
-                Gauge = true, GaugeMin = 0, GaugeMax = 16, GaugeInterval = 1,
-                GaugeWidth = 72, GaugeOffset = 24,
+                Gauge = true, GaugeMin = 0, GaugeMax = 16 * 2, GaugeInterval = 1, //Poridur GaugeMax = 16->32 tilesx32
+                GaugeWidth = 72 * 2, GaugeOffset = 24 * 2, // Poridur *2 tiles
                 Options = new OptionsSetting[] {
                 new OptionsSetting( 0, "{0}", "Set grid display") }},
             new OptionsData { Label = "Range Preview", Options = new OptionsSetting[] {

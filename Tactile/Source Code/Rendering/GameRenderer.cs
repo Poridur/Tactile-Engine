@@ -24,7 +24,7 @@ namespace Tactile.Rendering
         //@Debug: why is this static
         // Or if a public constant is needed, why isn't this constant
         // or why can't we get with a property
-        public static int ZOOM = 2;
+        public static int ZOOM = 1;//Poridur 2 -> 1
 #elif XBOX
         public static int ZOOM = 2;
 #else

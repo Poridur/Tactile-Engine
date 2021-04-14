@@ -734,7 +734,7 @@ namespace Tactile
         {
             if (!Global.content_exists(@"Graphics/Characters/" + name))
             {
-                name = DEFAULT_MAP_SPRITE + (name.Substring(name.Length - 5, 5) == "_move" ? "_move" : "");
+                name = DEFAULT_MAP_SPRITE + (name.Substring(name.Length - 10, 10) == "_move" ? "_move" : ""); //Poridur reverse? -5, 5
                 //return null;
             }
             // Note: Team 0 is greyed out
@@ -872,7 +872,7 @@ namespace Tactile
         {
             // Character Sprite
             Player_Sprite = new Character_Sprite(Global.Content.Load<Texture2D>(@"Graphics/Characters/Cursor"));
-            Player_Sprite.offset = new Vector2(16, 16);
+            Player_Sprite.offset = new Vector2(TILE_SIZE, TILE_SIZE); //Poridur 2x 16 -> Tile_Size
             Player_Sprite.stereoscopic = Config.MAP_CURSOR_DEPTH;
             // Status Effects
             foreach (int id in Global.data_statuses.Keys)
@@ -1356,9 +1356,9 @@ namespace Tactile
                         loc += new Vector2(0, -j * TILE_SIZE * 0.75f);
                         sprite_batch.Draw(White_Square,
                             loc - Global.game_map.display_loc,
-                            new Rectangle(0, 0, 16, 16), tint,
-                            edge.Width == 1 ? 0f : MathHelper.PiOver2,
-                            new Vector2(0, 8), new Vector2(TILE_SIZE / 16f, 2 / 16f),
+                            new Rectangle(0, 0, TILE_SIZE, TILE_SIZE), tint, //Poridur 2x 16--> tile size
+                            edge.Width == 2 ? 0f : MathHelper.PiOver2, //Poridur edge = 2
+                            new Vector2(0, 16), new Vector2(TILE_SIZE / 16f, 2 / 16f), //Poridur Vector 0,8 --> 0,16
                             SpriteEffects.None, 0f);
                     }
                 }
@@ -1799,7 +1799,7 @@ namespace Tactile
                 //sprite_batch.Draw(White_Square, loc * 16 + move_range_draw_vector() - display_loc,
                 //    new Rectangle(0, 0, 16, 16), tint); //Debug
                 sprite_batch.Draw(White_Square, loc * TILE_SIZE + move_range_draw_vector() - display_loc,
-                    new Rectangle(0, 0, 16, 16), tint, 0f, Vector2.Zero, TILE_SIZE / 16f, SpriteEffects.None, 0f);
+                    new Rectangle(0, 0, TILE_SIZE, TILE_SIZE), tint, 0f, Vector2.Zero, TILE_SIZE / 16f, SpriteEffects.None, 0f); //Poridur 2x16 --> Tile_size
             }
         }
 

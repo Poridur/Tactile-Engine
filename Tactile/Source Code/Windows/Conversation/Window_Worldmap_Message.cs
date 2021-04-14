@@ -49,7 +49,7 @@ namespace Tactile
 
             var window = new Tactile.Graphics.Windows.WindowPanel(
                 Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Worldmap_Text_Box"),
-                new Vector2(0, 0), 16, 16, 16, 16, 16, 16);
+                new Vector2(0, 0), 16 * 2, 16 * 2, 16 * 2, 16 * 2, 16 * 2, 16 * 2); //Poridur *2
             window.width = window_width;
             window.height = window.texture.Height;
             Text_Background = window;

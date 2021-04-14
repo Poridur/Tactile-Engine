@@ -7,18 +7,18 @@ using ListExtension;
 
 namespace Tactile
 {
-    class Map_Combat_HUD : Sprite
+    class Map_Combat_HUD : Sprite //Poridur *2
     {
         const int HP_GAIN_TIME = 4;
         const int TIMER_MAX = 8;
-        protected readonly static List<Vector2> WINDOW_SHAKE = new List<Vector2> { new Vector2(0, -4), new Vector2(2, -4), new Vector2(-2, 2),
-            new Vector2(-2, -3), new Vector2(2, -3), new Vector2(-2, -1), new Vector2(-1, 0), new Vector2(-1, -3), new Vector2(3, 2),
-            new Vector2(4, 2), new Vector2(-2, -3), new Vector2(-2, 4), new Vector2(-4, -4), new Vector2(1, 0), new Vector2(-2, 0),
-            new Vector2(1, 3), new Vector2(0, 0) };
-        protected readonly static List<Vector2> DATA_SHAKE = new List<Vector2> { new Vector2(-2, 0), new Vector2(4, 2), new Vector2(-1, 4),
-            new Vector2(-1, 0), new Vector2(0, 1), new Vector2(0, 0), new Vector2(0, 0), new Vector2(2, 1), new Vector2(-2, 4),
-            new Vector2(1, -3), new Vector2(-3, -1), new Vector2(1, -1), new Vector2(-3, 1), new Vector2(-1, 3), new Vector2(-1, 3),
-            new Vector2(-2, -2), new Vector2(0, 0) };
+        protected readonly static List<Vector2> WINDOW_SHAKE = new List<Vector2> { new Vector2(0, -4 * 2), new Vector2(2 * 2, -4 * 2), new Vector2(-2 * 2, 2 * 2),
+            new Vector2(-2 * 2, -3 * 2), new Vector2(2 * 2, -3 * 2), new Vector2(-2 * 2, -1 * 2), new Vector2(-1 * 2, 0), new Vector2(-1 * 2, -3 * 2), new Vector2(3 * 2, 2 * 2),
+            new Vector2(4 * 2, 2 * 2), new Vector2(-2 * 2, -3 * 2), new Vector2(-2 * 2, 4 * 2), new Vector2(-4 * 2, -4 * 2), new Vector2(1 * 2, 0), new Vector2(-2 * 2, 0),
+            new Vector2(1 * 2, 3 * 2), new Vector2(0, 0) };
+        protected readonly static List<Vector2> DATA_SHAKE = new List<Vector2> { new Vector2(-2 * 2, 0), new Vector2(4 * 2, 2 * 2), new Vector2(-1 * 2, 4 * 2),
+            new Vector2(-1 * 2, 0), new Vector2(0, 1 * 2), new Vector2(0, 0), new Vector2(0, 0), new Vector2(2 * 2, 1 * 2), new Vector2(-2 * 2, 4 * 2),
+            new Vector2(1 * 2, -3 * 2), new Vector2(-3 * 2, -1 * 2), new Vector2(1 * 2, -1 * 2), new Vector2(-3 * 2, 1 * 2), new Vector2(-1 * 2, 3 * 2), new Vector2(-1 * 2, 3 * 2),
+            new Vector2(-2 * 2, -2 * 2), new Vector2(0, 0) };
 
         Combat_Data Data = null;
         int Unit_Id1 = -1, Unit_Id2 = -1;
@@ -212,33 +212,33 @@ namespace Tactile
 
         protected void set_location()
         {
-            // If only one battler
+            // If only one battler 
             if (unit_2 == null)
             {
                 int y = (int)(unit_1.pixel_loc.Y - Global.game_map.display_y);
-                if (y <= 72)
-                    y += 24;
+                if (y <= 72)//Poridur * 2
+                    y += 24;//Poridur * 2
                 else
-                    y -= 64;
-                loc = new Vector2((Config.WINDOW_WIDTH - 90) / 2, y);
+                    y -= 64; //Poridur * 2
+                loc = new Vector2((Config.WINDOW_WIDTH - 90 * 2) / 2, y);//Poridur * 2
             }
             else
             {
                 // Places window above all battlers
                 int y = (int)(Math.Min(unit_1.pixel_loc.Y, unit_2.pixel_loc.Y) - Global.game_map.display_y);
                 // If off the top of the screen
-                if (y <= 72)
+                if (y <= 72 * 2) //Poridur * 2
                 {
                     y = (int)(Math.Max(unit_1.pixel_loc.Y, unit_2.pixel_loc.Y) - Global.game_map.display_y);
                     // If off the bottom of the screen
-                    if (y > Config.WINDOW_HEIGHT - 72)
-                        y -= 64;
+                    if (y > Config.WINDOW_HEIGHT - 72 * 2)//Poridur * 2
+                        y -= 64;//Poridur * 2
                     else
-                        y += 24;
+                        y += 24;//Poridur * 2
                 }
                 else
-                    y -= 64;
-                loc = new Vector2((Config.WINDOW_WIDTH - 176) / 2, y);
+                    y -= 64;//Poridur * 2
+                loc = new Vector2((Config.WINDOW_WIDTH - 176 * 2) / 2, y);//Poridur * 2
             }
         }
 
@@ -423,85 +423,85 @@ namespace Tactile
             if ((textures.Count == 3) && unit_1 != null)
                 if (visible)
                 {
-                    Vector2 loc = this.loc + new Vector2(0, Data == null ? 8 : 0);
+                    Vector2 loc = this.loc + new Vector2(0, Data == null ? 8 : 0); //
                     Vector2 offset = this.offset;
                     int width;
                     bool two_units = false;
                     if (unit_2 != null)
                         if (Global.game_map.attackable_map_object(battler_2_id) != null)
                             two_units = true;
-                    // Window 1 - top
-                    sprite_batch.Draw(textures[0], loc + new Vector2(1, 0),
-                        new Rectangle(0, 64 * (team1 - 1), 88, 32), tint,
+                    // Window 1 - top //HP Bar - Vector = position, Rectangle = size
+                    sprite_batch.Draw(textures[0], loc + new Vector2(1 * 2, 0), //Poridur*2
+                        new Rectangle(0, 64 * (team1 - 1), 88, 32), tint, //Poridur*2
                         0f, offset + Window_Offset, 1f, SpriteEffects.None, 0f);
                     // HP gauge 1
-                    sprite_batch.Draw(textures[0], loc + new Vector2(24, 16),
-                        new Rectangle(88, 0, 56, 8), tint,
+                    sprite_batch.Draw(textures[0], loc + new Vector2(24 * 2, 16 * 2), //Poridur*2
+                        new Rectangle(88, 0, 56, 8), tint, //Poridur*2
                         0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                     width = (Hp1 * 49) / maxhp1;
-                    sprite_batch.Draw(textures[0], loc + new Vector2(24 + 4, 16),
-                        new Rectangle(88 + 4, 8, width, 8), tint,
+                    sprite_batch.Draw(textures[0], loc + new Vector2(24 * 2 + 4 * 2, 16 * 2), //Poridur*2
+                        new Rectangle(88 + 4, 8, width, 8), tint, //Poridur*2
                         0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                     if (Data != null)
                     {
                         // Window 1 - bottom
-                        sprite_batch.Draw(textures[0], loc + new Vector2(1, 24),
-                            new Rectangle(0, 64 * (team1 - 1) + 32, 88, 32), tint,
+                        sprite_batch.Draw(textures[0], loc + new Vector2(1 * 2, 24 * 2), //Poridur*2
+                            new Rectangle(0, 64 * 2* (team1 - 1) + 32 * 2, 88 * 2, 32 * 2), tint, //Poridur*2
                             0f, offset + Window_Offset, 1f, SpriteEffects.None, 0f);
                         // Labels 1
-                        sprite_batch.Draw(textures[0], loc + new Vector2(4, 28),
-                            new Rectangle(88, 16, 56, 16), tint,
+                        sprite_batch.Draw(textures[0], loc + new Vector2(4 * 2, 28 * 2), //Poridur*2
+                            new Rectangle(88 * 2, 16 * 2, 56 * 2, 16 * 2), tint, //Poridur*2
                             0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                         // Stats 1
                         for (int i = 0; i < 4; i++)
                         {
-                            Stat_Imgs[i].loc = loc + new Vector2(42, 28);
+                            Stat_Imgs[i].loc = loc + new Vector2(42 * 2, 28 * 2); //Poridur*2
                             Stat_Imgs[i].draw(sprite_batch, Data_Offset);
                         }
                     }
                     // Name 1
-                    Name1.loc = loc + new Vector2(44, 0);
+                    Name1.loc = loc + new Vector2(44 * 2, 0); //Poridur*2
                     Name1.draw(sprite_batch, Data_Offset);
                     // HP 1
-                    HP_Counter1.loc = loc + new Vector2(24, 16);
+                    HP_Counter1.loc = loc + new Vector2(24 * 2, 16 * 2); //Poridur*2
                     HP_Counter1.draw(sprite_batch, Data_Offset);
                     if (two_units)
                     {
-                        loc += new Vector2(88, 0);
+                        loc += new Vector2(88 * 2, 0); //Poridur*2
                         // Window 2 - top
                         sprite_batch.Draw(textures[0], loc + new Vector2(0, 0),
-                            new Rectangle(0, 64 * (team2 - 1), 88, 32), tint,
+                            new Rectangle(0, 64 * 2 * (team2 - 1), 88 * 2, 32 * 2), tint, //Poridur*2
                             0f, offset + Window_Offset, 1f, SpriteEffects.None, 0f);
                         // HP Gauge 2
-                        sprite_batch.Draw(textures[0], loc + new Vector2(24, 16),
-                            new Rectangle(88, 0, 56, 8), tint,
+                        sprite_batch.Draw(textures[0], loc + new Vector2(24 * 2, 16 * 2), //Poridur*2
+                            new Rectangle(88 * 2, 0, 56 * 2, 8 * 2), tint, //Poridur*2
                             0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                         width = (Hp2 * 49) / maxhp2;
-                        sprite_batch.Draw(textures[0], loc + new Vector2(24 + 4, 16),
-                            new Rectangle(88 + 4, 8, width, 8), tint,
+                        sprite_batch.Draw(textures[0], loc + new Vector2(24 * 2 + 4 * 2, 16 * 2), //Poridur*2
+                            new Rectangle(88 * 2 + 4 * 2, 8 * 2, width, 8 * 2), tint, //Poridur*2
                             0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                         if (Data != null)
                         {
                             // Window 2 - bottom
-                            sprite_batch.Draw(textures[0], loc + new Vector2(0, 24),
-                                new Rectangle(0, 64 * (team2 - 1) + 32, 88, 32), tint,
+                            sprite_batch.Draw(textures[0], loc + new Vector2(0, 24 * 2), //Poridur*2
+                                new Rectangle(0, 64 * 2* (team2 - 1) + 32 * 2, 88 * 2, 32 * 2), tint,
                                 0f, offset + Window_Offset, 1f, SpriteEffects.None, 0f);
                             // Labels 2
-                            sprite_batch.Draw(textures[0], loc + new Vector2(4, 28),
-                                new Rectangle(88, 16, 56, 16), tint,
+                            sprite_batch.Draw(textures[0], loc + new Vector2(4 * 2, 28 * 2), //Poridur*2
+                                new Rectangle(88 * 2, 16 * 2, 56 * 2, 16 * 2), tint,
                                 0f, offset + Data_Offset, 1f, SpriteEffects.None, 0f);
                             // Stats 2
                             for (int i = 4; i < 8; i++)
                             {
-                                Stat_Imgs[i].loc = loc + new Vector2(42, 28);
+                                Stat_Imgs[i].loc = loc + new Vector2(42 * 2, 28 * 2); //Poridur*2
                                 Stat_Imgs[i].draw(sprite_batch, Data_Offset);
                             }
                         }
                         // Name 2
-                        Name2.loc = loc + new Vector2(44, 0);
+                        Name2.loc = loc + new Vector2(44 * 2, 0); //Poridur*2
                         Name2.draw(sprite_batch, Data_Offset);
                         // HP 2
-                        HP_Counter2.loc = loc + new Vector2(24, 16);
+                        HP_Counter2.loc = loc + new Vector2(24 * 2, 16 * 2); //Poridur*2
                         HP_Counter2.draw(sprite_batch, Data_Offset);
                     }
                 }

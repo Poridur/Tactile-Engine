@@ -27,26 +27,26 @@ namespace Tactile
             Label = new Sprite();
             Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
             Label.loc = new Vector2(0 + (Time >= 0 ? 4 : 0), 0);
-            Label.src_rect = new Rectangle(0, 144, 24, 16);
+            Label.src_rect = new Rectangle(0, 144 * 2, 24 * 2, 16 * 2); //Poridur *2 // Main Menu
             // Hour
             Hour = new RightAdjustedText();
-            Hour.loc = new Vector2(40, 0);
+            Hour.loc = new Vector2(40 * 2, 0); //Poridur *2
             Hour.SetFont(Config.UI_FONT, Global.Content, "Blue");
             // Minute
             Minute = new RightAdjustedText();
-            Minute.loc = new Vector2(64, 0);
+            Minute.loc = new Vector2(64 * 2, 0); //Poridur *2
             Minute.SetFont(Config.UI_FONT, Global.Content, "Blue");
             // Second
             Second = new RightAdjustedText();
-            Second.loc = new Vector2(88, 0);
+            Second.loc = new Vector2(88 * 2, 0); //Poridur *2
             Second.SetFont(Config.UI_FONT + "S", Global.Content, "Blue", Config.UI_FONT);
             // Separators
             Separator_1 = new RightAdjustedText();
-            Separator_1.loc = new Vector2(40 + 4, 0);
+            Separator_1.loc = new Vector2(40 * 2+ 4 * 2, 0); //Poridur *2
             Separator_1.SetFont(Config.UI_FONT + "S", Global.Content, "Blue", Config.UI_FONT);
             Separator_1.text = ":";
             Separator_2 = new RightAdjustedText();
-            Separator_2.loc = new Vector2(64 + 4, 0);
+            Separator_2.loc = new Vector2(64 * 2 + 4 * 2, 0); //Poridur *2
             Separator_2.SetFont(Config.UI_FONT + "S", Global.Content, "Blue", Config.UI_FONT);
             Separator_2.text = ".";
             update();

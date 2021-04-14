@@ -50,15 +50,15 @@ namespace Tactile
                 {
                     Window = new WindowPanel(Global.Content.Load<Texture2D>(
                         @"Graphics/Windowskins/Preparations_Item_Options_Window"));
-                    Window.width = Width - 8;
-                    Window.height = 24;
-                    Window.offset = new Vector2(-4, -4);
+                    Window.width = Width - 16; //Poridur original 8
+                    Window.height = 24 * 2; //Poridur *2
+                    Window.offset = new Vector2(-4 * 2, -4 * 2);
                 }
                 else
                 {
                     Window = new System_Color_Window();
                     Window.width = Width;
-                    Window.height = 32;
+                    Window.height = 32 * 2; //Poridur *2
                 }
             }
         }

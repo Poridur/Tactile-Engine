@@ -7,7 +7,7 @@ namespace Tactile
     class Data_Team_Window : Sprite
     {
         public readonly static string FILENAME = @"Graphics/Windowskins/Data_Screen";
-        const int WIDTH = 120;
+        const int WIDTH = 120 * 2; //Poridur *2
 
         public int Height = 0;
         public bool small = false;
@@ -17,36 +17,36 @@ namespace Tactile
         {
             texture = Global.Content.Load<Texture2D>(Data_Team_Window.FILENAME);
             Team = (int)MathHelper.Clamp(team, 1, Constants.Team.NUM_TEAMS) - 1;
-            Height = (height + 1) * 16 + 8;
+            Height = ((height + 1) * 16 + 8) * 2;//Poridur *2
         }
 
         new public Rectangle src_rect(int frame, int width, int height)
         {
-            int x = 80 + 32 * Team;
-            int y = 208;
+            int x = (80 + 32 * Team) * 2; //Poridur *2
+            int y = 208 * 2; //Poridur *2
             switch (frame)
             {
                 // Bottom
                 case 1:
-                    return new Rectangle(x + 0, y + 24, width, height);
+                    return new Rectangle(x + 0, y + 24 * 2, width * 2, height * 2);
                 case 2:
-                    return new Rectangle(x + 8, y + 24, width, height);
+                    return new Rectangle(x + 8 * 2, y + 24 * 2, width * 2, height * 2);
                 case 3:
-                    return new Rectangle(x + 16, y + 24, width, height);
+                    return new Rectangle(x + 16 * 2, y + 24 * 2, width * 2, height * 2);
                 // Middle
                 case 4:
-                    return new Rectangle(x + 0, y + 16, width, height);
+                    return new Rectangle(x + 0, y + 16, width * 2, height * 2);
                 case 5:
-                    return new Rectangle(x + 8, y + 16, width, height);
+                    return new Rectangle(x + 8 * 2, y + 16 * 2, width * 2, height * 2);
                 case 6:
-                    return new Rectangle(x + 16, y + 16, width, height);
+                    return new Rectangle(x + 16 * 2, y + 16 * 2, width * 2, height * 2);
                 // Top row
                 case 7:
-                    return new Rectangle(x + 0, y + 0, width, height);
+                    return new Rectangle(x + 0, y + 0, width * 2, height * 2);
                 case 8:
-                    return new Rectangle(x + 8, y + 0, width, height);
+                    return new Rectangle(x + 8 * 2, y + 0, width * 2, height * 2);
                 case 9:
-                    return new Rectangle(x + 16, y + 0, width, height);
+                    return new Rectangle(x + 16 * 2, y + 0, width * 2, height * 2);
             }
             if (frames.Count == 0)
                 return new Rectangle(0, 0, texture.Width, texture.Height);
@@ -92,8 +92,8 @@ namespace Tactile
                         y += temp_height;
                     }
                     // Draw team name
-                    sprite_batch.Draw(texture, (loc + draw_vector()) - draw_offset, new Rectangle(32, 128 + 8 * Team, 56, 8),
-                        tint, angle, offset - new Vector2(8, 2), scale,
+                    sprite_batch.Draw(texture, (loc + draw_vector()) - draw_offset, new Rectangle(32 * 2, (128 + 8 * Team) * 2, 56 * 2, 8 * 2),//Poridur *2
+                        tint, angle, offset - new Vector2(8 * 2, 2 * 2), scale,//Poridur *2
                         mirrored ? SpriteEffects.FlipHorizontally : SpriteEffects.None, Z);
                 }
         }

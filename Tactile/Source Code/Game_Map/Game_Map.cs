@@ -27,7 +27,7 @@ namespace Tactile
         private bool Is_Map_Scene = false;
         private Rectangle Map_Edge_Offsets;
         private float Target_Display_X = 0, Target_Display_Y = 0;
-        private int Actual_Display_X = 192, Actual_Display_Y = 192;
+        private int Actual_Display_X = 192 * 2, Actual_Display_Y = 192 * 2; //Poridur x32 tiles
         private bool Scrolling = false, Scrolling_Previous = false;
         private int Move_Range_Anim_Count = 0;
         private MapObjects Objects = new MapObjects();
@@ -698,7 +698,7 @@ namespace Tactile
 
         public Game_Map()
         {
-            map_edge_offsets = new Rectangle(2, 2, 4, 4); //Yeti
+            map_edge_offsets = new Rectangle(2, 2, 4, 4); //Yeti //Poridur x32 tiles //reversed (function?)
             UnitsHidden = false;
             Teams = new List<List<int>>();
             Group_Names = new List<Dictionary<int, string>>();

@@ -82,14 +82,14 @@ namespace Tactile.Windows.Command
 
             // Bar
             Glow = true;
-            this.glow_width = 16;
+            this.glow_width = 16 * 2; //Poridur x32 tiles
             this.bar_offset = new Vector2(-4, 0);
 
             // Cursor
             UICursor.UpdateTargetLoc(ScrollOffset);
             UICursor.move_to_target_loc();
             PlayerCursor = new Character_Sprite(Global.Content.Load<Texture2D>(@"Graphics/Characters/Cursor"));
-            PlayerCursor.offset = new Vector2(4, 0 - 2);
+            PlayerCursor.offset = new Vector2(4, 0 - 2); //Poridur reversed! (4,0 -2)
 
             SetUnits();
         }
@@ -244,14 +244,14 @@ namespace Tactile.Windows.Command
                     Units[i].Draw(sprite_batch, -(loc + text_draw_vector() - Text_Offset));
 
             // Draw player cursor
-            if (Scroll * 16 != (int)(ScrollOffset.Y))
+            if (Scroll * 32 != (int)(ScrollOffset.Y)) //Poridur 16>32
                 DrawPlayerCursor(sprite_batch);
         }
 
         public override void draw_cursor(SpriteBatch sprite_batch)
         {
             // Draw player cursor
-            if (Scroll * 16 == (int)(ScrollOffset.Y))
+            if (Scroll * 32 == (int)(ScrollOffset.Y)) //Poridur 16>32 //reverse?
                 DrawPlayerCursor(sprite_batch);
 
             base.draw_cursor(sprite_batch);
@@ -262,8 +262,8 @@ namespace Tactile.Windows.Command
             if (active && Items.ActiveNode != null)
             {
                 Vector2 cursorOffset = new Vector2(
-                    (this.index % Columns) * 8,
-                    (this.index / Columns) * 16);
+                    (this.index % Columns) * 16, //Poridur 8>16
+                    (this.index / Columns) * 32); //Poridur 16>32
                 PlayerCursor.draw(spriteBatch, -(loc + cursorOffset + text_draw_vector()));
             }
         }

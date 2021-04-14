@@ -112,8 +112,8 @@ namespace Tactile.Windows.UserInterface.Title
 
             Gold_G = new Sprite();
             Gold_G.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Gold_G.loc = new Vector2(140, 32);
-            Gold_G.src_rect = new Rectangle(0, 160, 16, 16);
+            Gold_G.loc = new Vector2(140 * 2, 32 * 2); //Poridur * 2
+            Gold_G.src_rect = new Rectangle(0, 160 * 2, 16 * 2, 16 * 2); //Poridur *2
 
             Screenshot = new Sprite();
             Screenshot.texture = suspend_file_info.Screenshot;

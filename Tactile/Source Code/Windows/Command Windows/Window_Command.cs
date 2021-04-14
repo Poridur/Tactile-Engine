@@ -179,7 +179,7 @@ namespace Tactile.Windows.Command
             initialize_window();
             Grey_Cursor = new Hand_Cursor();
             Grey_Cursor.tint = new Color(192, 192, 192, 255);
-            Grey_Cursor.draw_offset = new Vector2(-16, 0);
+            Grey_Cursor.draw_offset = new Vector2(-32, 0); //Poridur -16>-32 //reverse?
             //Hand_Texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Menu_Hand");
             this.loc = loc;
 
@@ -229,7 +229,7 @@ namespace Tactile.Windows.Command
             Items.WrapVerticalMove = true;
 
             UICursor = new UICursor<CommandUINode>(Items);
-            UICursor.draw_offset = new Vector2(-16, 0);
+            UICursor.draw_offset = new Vector2(-32, 0); //Poridur -16>-32 //reverse?
             UICursor.ratio = new int[] { 1, 1 };
         }
 
@@ -411,7 +411,7 @@ namespace Tactile.Windows.Command
 
         protected Vector2 item_loc(int index)
         {
-            const int LINE_HEIGHT = 16;
+            const int LINE_HEIGHT = 16 * 2; //Poridur x32 tiles
 
             return new Vector2(
                 8 + (index % Columns) * column_spacing,

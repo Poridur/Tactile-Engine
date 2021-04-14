@@ -51,7 +51,7 @@ namespace Tactile
             int temp_height;
             while (y < Height)
             {
-                temp_height = 16;
+                temp_height = 16; //Poridur x32 tiles //unchanged (function not known)
                 if (y == 0 || y == Height - 8)
                     temp_height = 8;
                 if (Height - (y + 8) < 16 && Height - (y + 8) != 0)
@@ -60,7 +60,7 @@ namespace Tactile
                 int temp_width;
                 while (x < Width)
                 {
-                    temp_width = 16;
+                    temp_width = 16; //Poridur x32 tiles //unchanged (function not known)
                     if (Width - (x + 16) < 16 && Width - (x + 16) != 0)
                         temp_width = Width - (x + 16);
                     // Left

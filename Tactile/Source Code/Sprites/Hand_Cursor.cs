@@ -44,7 +44,7 @@ namespace Tactile
         public Hand_Cursor()
         {
             texture = Global.Content.Load<Texture2D>(FILENAME);
-            Src_Rect = new Rectangle(0, 0, 16, 16);
+            Src_Rect = new Rectangle(0, 0, 16, 16); //Poridur 2x 16 original (to change if image size changes)
             offset = new Vector2(0, -2);
         }
 

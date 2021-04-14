@@ -34,8 +34,8 @@ namespace Tactile.Windows.UserInterface.Command
 
         public Vector2 current_cursor_loc
         {
-            get { return Cursor.loc + loc + new Vector2(-8, 8); }
-            set { Cursor.loc = value - (loc + new Vector2(-8, 8)); }
+            get { return Cursor.loc + loc + new Vector2(-16, 16); } //Poridur Original: -8, 8 //reverse?
+            set { Cursor.loc = value - (loc + new Vector2(-16, 16)); } //Poridur Original: -8, 8 //reverse?
         }
 
         public bool active
@@ -81,7 +81,8 @@ namespace Tactile.Windows.UserInterface.Command
             Cursor.hide_when_using_mouse(false);
             // Resize if needed
             int width = Font_Data.text_width(str, Tactile.Config.CONVO_FONT);
-            width = width + (width % 8 == 0 ? 0 : (8 - width % 8)) + 16 + (int)loc.X;
+            // Original width = width + (width % 8 == 0 ? 0 : (8 - width % 8)) + 16 + (int)loc.X; //Poridur 
+            width = width + (width % 8 == 0 ? 0 : (8 - width % 8)) + 32 + (int)loc.X; //Poridur changed
             if (width > Size.X)
                 size = new Vector2(width, Size.Y);
             Cursor.move_to_target_loc();

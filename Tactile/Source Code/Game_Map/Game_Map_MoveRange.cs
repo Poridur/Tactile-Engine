@@ -809,7 +809,8 @@ namespace Tactile
             lock (Move_Range_Lock)
             {
                 int width = move_range_texture.Width / 4;
-                int timer = Math.Min(range_start_timer, width - 1);//15); //Debug
+                // int timer = Math.Min(range_start_timer, width - 1);//15); //Debug //original
+                int timer = Math.Min(range_start_timer, width - (width * (1/16)));//15); //Debug //Poridur: -1/16 = -1 @16px tiles, -2 32px tiles
                 Rectangle rect = new Rectangle(((move_range_anim_count / 4) / 4) * width,
                         ((move_range_anim_count / 4) % 4) * width + (width - timer), timer, timer);
                 Vector2 display_loc = this.display_loc;

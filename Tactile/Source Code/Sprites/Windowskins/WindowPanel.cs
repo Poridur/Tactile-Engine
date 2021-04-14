@@ -9,8 +9,8 @@ namespace Tactile.Graphics.Windows
     {
         public int width = 0, height = 0;
         protected Vector2 _SrcOffset = Vector2.Zero;
-        protected int LeftWidth = 8, CenterWidth = 8, RightWidth = 8;
-        protected int TopHeight = 8, CenterHeight = 8, BottomHeight = 8;
+        protected int LeftWidth = 8 * 2, CenterWidth = 8 * 2, RightWidth = 8 * 2;//Poridur *2
+        protected int TopHeight = 8 * 2, CenterHeight = 8 * 2, BottomHeight = 8 * 2;//Poridur *2
 
         #region Accessors
         protected int top_height
@@ -52,7 +52,7 @@ namespace Tactile.Graphics.Windows
 
         public WindowPanel(Texture2D texture) : this(texture, default(Vector2)) { }
         public WindowPanel(Texture2D texture, Vector2 srcOffset)
-            : this(texture, srcOffset, 8, 8, 8, 8, 8, 8) { }
+            : this(texture, srcOffset, 8 * 2, 8 * 2, 8 * 2, 8 * 2, 8 * 2, 8 * 2) { } //Poridur *2
         public WindowPanel(Texture2D texture, Vector2 srcOffset,
             int leftWidth, int centerWidth, int rightWidth,
             int topHeight, int centerHeight, int bottomHeight)

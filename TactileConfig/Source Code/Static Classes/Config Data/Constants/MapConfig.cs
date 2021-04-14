@@ -5,9 +5,9 @@ namespace Tactile.Constants
 {
     public class Map
     {
-        public readonly static int TILE_SIZE = 16;
-        public readonly static int TILESET_TILE_SIZE = 16; // Total size of tiles on the tileset images, including gutters around them
-        public const int UNIT_PIXEL_SIZE = 16; // Unit logical steps per pixel
+        public readonly static int TILE_SIZE = 16 * Config.ANB_SIZE; //Poridur - does not work without other settings
+        public readonly static int TILESET_TILE_SIZE = 16 * Config.ANB_SIZE; // Total size of tiles on the tileset images, including gutters around them //Poridur x32 can read bigger Tilemaps now
+        public const int UNIT_PIXEL_SIZE = 16 * Config.ANB_SIZE; // Unit logical steps per pixel //Poridur x32 test
         public readonly static int UNIT_TILE_SIZE = TILE_SIZE * UNIT_PIXEL_SIZE; // Unit logical steps per tile, should be larger than TILE_SIZE
 
 #if XBOX

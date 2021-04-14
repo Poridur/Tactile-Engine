@@ -50,7 +50,8 @@ namespace Tactile.Windows.UserInterface.Command
             Cursor.hide_when_using_mouse(false);
             // Resize if needed
             int width = Font_Data.text_width(str, Tactile.Config.UI_FONT);
-            width = width + (width % 8 == 0 ? 0 : (8 - width % 8)) + 16 + (int)loc.X;
+            //original width = width + (width % 8 == 0 ? 0 : (8 - width % 8)) + 16 + (int)loc.X; //Poridur
+            width = width + (width % 8 == 0 ? 0 : (16 - width % 8)) + 32 + (int)loc.X;//Poridur
             if (width > Size.X)
                 size = new Vector2(width, Size.Y);
         }

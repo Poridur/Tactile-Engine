@@ -233,7 +233,7 @@ namespace Tactile
         #endregion
 
         #region Draw
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch) 
         {
             if (_Visible)
             {

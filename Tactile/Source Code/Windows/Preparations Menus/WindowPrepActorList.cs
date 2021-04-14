@@ -129,7 +129,7 @@ namespace Tactile.Windows.Preparations
             // Scrollbar
             if (Rows > this.VisibleRows)
             {
-                Scrollbar = new Scroll_Bar(this.VisibleRows * this.RowSize - 16, Rows, this.VisibleRows, 0);
+                Scrollbar = new Scroll_Bar(this.VisibleRows * this.RowSize - 32, Rows, this.VisibleRows, 0); //Poridur //reverse? - 16 --> - 32
                 Scrollbar.loc = this.ScrollbarLoc;
 
                 Scrollbar.UpArrowClicked += Scrollbar_UpArrowClicked;

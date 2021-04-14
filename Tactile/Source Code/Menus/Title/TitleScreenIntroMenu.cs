@@ -9,9 +9,9 @@ namespace Tactile.Menus.Title
 {
     class TitleIntroMenu : BaseMenu
     {
-        protected const int SWORD_BASE_Y = 96;
+        protected const int SWORD_BASE_Y = 96 * 2; // Poridur
         protected const int SWORD_BASE_X = 0;
-        const int SWORD_X_MOVE = -192;
+        const int SWORD_X_MOVE = -192 * 2; // Poridur
         protected const int SUB_LOGO_X = 0;
 
         protected int Action = 0;

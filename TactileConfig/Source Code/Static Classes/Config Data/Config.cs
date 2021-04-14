@@ -19,8 +19,9 @@ namespace Tactile
     public class Config
     {
         public const int FRAME_RATE = 60;
-        public const int WINDOW_WIDTH = 20 * 16;
-        public const int WINDOW_HEIGHT = 12 * 16;
+        public const int ANB_SIZE = 2; // Poridur - changes game mode from 16px [default] (=1) to 32 px (=2)
+        public const int WINDOW_WIDTH = 20 * 16 *ANB_SIZE; // Poridur (change: 16-32)
+        public const int WINDOW_HEIGHT = 12 * 16 * ANB_SIZE; // Poridur (change: 16-32)
         //public const int WINDOW_WIDTH = 24 * 16;
         //public const int WINDOW_HEIGHT = 24 * 16;
          
@@ -81,7 +82,7 @@ namespace Tactile
         public const float MAP_UNITS_DEPTH = 4;
         public const float MAP_STATUS_ICON_DEPTH = 3.5f; //3 //Debug
         public const float MAP_HPGAUGE_DEPTH = 3.75f; //3.5f
-        public const float MAP_CURSOR_DEPTH = 3.5f; //3
+        public const float MAP_CURSOR_DEPTH = 3.5f; 
         public const float MAP_MOVE_RANGE_DEPTH = 4;
         public const float MAP_BALLISTA_HIGHEST_DEPTH = 1;
         public const float MAP_INFO_DEPTH = 0;
@@ -383,8 +384,8 @@ namespace Tactile
         #endregion
 
         #region Icons
-        public readonly static int ITEM_ICON_SIZE = 16;
-        public readonly static int SKILL_ICON_SIZE = 16;
+        public readonly static int ITEM_ICON_SIZE = 16 * ANB_SIZE; 
+        public readonly static int SKILL_ICON_SIZE = 16 * ANB_SIZE;
         #endregion
 
 
@@ -431,7 +432,7 @@ namespace Tactile
         #endregion
 
         #region Unit
-        public const int FORMATION_CHANGE_STEPS = 16;
+        public const int FORMATION_CHANGE_STEPS = 16 * ANB_SIZE; //Poridur x32tiles
 
         public readonly static Vector2 OFF_MAP = new Vector2(-15, -15); // Location to use as the general purpose off the map location (for rescued units, gladiators, etc)
 

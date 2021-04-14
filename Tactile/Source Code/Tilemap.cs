@@ -368,7 +368,7 @@ namespace Tactile
             if (!outline)
                 return;
             int ox, oy;
-            int texture_cell_width = Map_Grid_Texture.Width / 3;
+            int texture_cell_width = Map_Grid_Texture.Width / 3; //Poridur x32 tiles //reversed
             Color tint1 = new Color(
                 Global.game_map.grid_opacity, Global.game_map.grid_opacity, Global.game_map.grid_opacity, Global.game_map.grid_opacity);
             Color tint2 = new Color(128, 128, 128, 128);

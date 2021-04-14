@@ -10,9 +10,9 @@ namespace Tactile.Windows.Map
 {
     class Window_Data : Map_Window_Base
     {
-        const int RANKING_BAR_LENGTH = 56;
+        const int RANKING_BAR_LENGTH = 56 * 2; //Poridur *2
 
-        readonly static Vector2 TEAM_WINDOW_LOC = new Vector2(8, 32);
+        readonly static Vector2 TEAM_WINDOW_LOC = new Vector2(8 * 2, 32 * 2); //Poridur *2
         private int Index = 0;
         private bool ChangingPage = false;
         private int ChangingPageTime = 0;
@@ -40,7 +40,7 @@ namespace Tactile.Windows.Map
         private Page_Arrow Left_Page_Arrow, Right_Page_Arrow;
 
         #region Accessors
-        private Vector2 target_page_loc { get { return new Vector2(page == 0 ? 0 : 128, 0); } }
+        private Vector2 target_page_loc { get { return new Vector2(page == 0 ? 0 : 128 * 2, 0); } } //Poridur *2
 
         private int page
         {
@@ -58,7 +58,7 @@ namespace Tactile.Windows.Map
             update_black_screen();
         }
 
-        private void initialize_sprites()
+        private void initialize_sprites() //BAUSTELLE PORIDUR
         {
             // Black Screen
             Black_Screen = new Sprite();
@@ -68,7 +68,7 @@ namespace Tactile.Windows.Map
             // Banner
             Banner = new TextSprite();
             string str = Global.data_chapters[Global.game_state.chapter_id].FullName;
-            Banner.loc = new Vector2(Config.WINDOW_WIDTH, 32) / 2 - new Vector2(Font_Data.text_width(str, Config.CHAPTER_FONT) / 2, 8);
+            Banner.loc = new Vector2(Config.WINDOW_WIDTH, 32 * 2) / 2 - new Vector2(Font_Data.text_width(str, Config.CHAPTER_FONT) / 2, 8 * 2); //Poridur *2 //POSITION TITEL DATA SCEEN
             Banner.SetFont(Config.CHAPTER_FONT, Global.Content, "Data");
             Banner.text = str;
             Banner.stereoscopic = Config.DATA_BANNER_DEPTH;
@@ -76,28 +76,28 @@ namespace Tactile.Windows.Map
             int alpha = 7 * 16;
             BannerBg = new Sprite();
             BannerBg.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            BannerBg.loc = new Vector2(64, 0);
-            BannerBg.src_rect = new Rectangle(0, 176, 192, 32);
+            BannerBg.loc = new Vector2(64 * 2, 0); //new Poridur (double v) 
+            BannerBg.src_rect = new Rectangle(0, 176 *2, 192 * 2, 32 * 2); // Poridur *2
             BannerBg.tint = new Color(alpha, alpha, alpha, 256 - alpha);
             BannerBg.stereoscopic = Config.DATA_BANNER_DEPTH;
             // Unit Bg
             UnitBg = new Sprite();
             UnitBg.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            UnitBg.loc = new Vector2(132, 120);
-            UnitBg.src_rect = new Rectangle(0, 272, 128, 72);
+            UnitBg.loc = new Vector2(132 * 2, 120 * 2); //new Poridur (double v)
+            UnitBg.src_rect = new Rectangle(0, 272 * 2, 128 * 2, 72 * 2); //Poridur *2
             UnitBg.tint = new Color(alpha, alpha, alpha, 256 - alpha);
             UnitBg.stereoscopic = Config.DATA_LEADER_DEPTH;
             // File Bg
             FileBg = new Sprite();
             FileBg.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            FileBg.loc = new Vector2(260, 128);
-            FileBg.src_rect = new Rectangle(0, 208, 56, 64);
+            FileBg.loc = new Vector2(260 * 2, 128 * 2); //new Poridur (double v)
+            FileBg.src_rect = new Rectangle(0, 208 * 2, 56* 2, 64 * 2); //Poridur * 2
             FileBg.tint = new Color(alpha, alpha, alpha, 256 - alpha);
             FileBg.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Background
             Background = new Menu_Background();
             Background.texture = Global.Content.Load<Texture2D>(@"Graphics/Pictures/Status_Background");
-            (Background as Menu_Background).vel = new Vector2(-0.25f, 0);
+            (Background as Menu_Background).vel = new Vector2(-0.25f, 0); //Speed background mov
             (Background as Menu_Background).tile = new Vector2(3, 2);
             Background.stereoscopic = Config.MAPMENU_BG_DEPTH;
             // Cursor
@@ -106,14 +106,14 @@ namespace Tactile.Windows.Map
             // Objective Window
             Objective_Window = new Sprite();
             Objective_Window.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Objective_Window.loc = new Vector2(132, 32);
-            Objective_Window.src_rect = new Rectangle(32, 0, 184, 96);
+            Objective_Window.loc = new Vector2(132 * 2, 32 * 2); //new Poridur (double v)
+            Objective_Window.src_rect = new Rectangle(32 * 2, 0, 184 * 2, 96 * 2); //Poridur *2
             Objective_Window.stereoscopic = Config.DATA_WINDOW_DEPTH;
             // Game Data Window
             Game_Data_Window = new Sprite();
             Game_Data_Window.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Game_Data_Window.loc = new Vector2(324, 120);
-            Game_Data_Window.src_rect = new Rectangle(104, 96, 112, 72);
+            Game_Data_Window.loc = new Vector2(324 * 2, 120 * 2); //new Poridur (double v)
+            Game_Data_Window.src_rect = new Rectangle(104 * 2, 96 * 2, 112 * 2, 72 * 2); //Poridur * 2
             Game_Data_Window.stereoscopic = Config.DATA_DATA_DEPTH;
             // Team Windows/Text
             int y = 0;
@@ -139,230 +139,230 @@ namespace Tactile.Windows.Map
                     for (int j = 0; j < groups.Count; j++)
                     {
                         Group_Names.Add(new TextSprite());
-                        Group_Names[Group_Names.Count - 1].loc = TEAM_WINDOW_LOC + new Vector2(4, y + 12 + j * 16);
+                        Group_Names[Group_Names.Count - 1].loc = TEAM_WINDOW_LOC + new Vector2(4 * 2, y + 12 * 2 + j * 32); //Poridur *2 (16 -> 32)rev //font
                         Group_Names[Group_Names.Count - 1].SetFont(Config.UI_FONT, Global.Content, "White");
                         Group_Names[Group_Names.Count - 1].text = Global.game_map.group_name(i, groups[j]);
                         Group_Names[Group_Names.Count - 1].stereoscopic = Config.DATA_TEAMS_DEPTH;
                         Group_Counts.Add(new RightAdjustedText());
-                        Group_Counts[Group_Names.Count - 1].loc = TEAM_WINDOW_LOC + new Vector2(112, y + 12 + j * 16);
+                        Group_Counts[Group_Names.Count - 1].loc = TEAM_WINDOW_LOC + new Vector2(112 * 2, y + 12 * 2 + j * 32); //Poridur *2 (16 -> 32) reb //font
                         Group_Counts[Group_Names.Count - 1].SetFont(Config.UI_FONT, Global.Content, "Blue");
                         Group_Counts[Group_Names.Count - 1].text = group_sizes[groups[j]].ToString();
                         Group_Counts[Group_Names.Count - 1].stereoscopic = Config.DATA_TEAMS_DEPTH;
                     }
-                    y += (group_sizes.Count + 1) * 16;
+                    y += (group_sizes.Count + 1 * 2) * 32; //Poridur *2 (16 -> 32)
                 }
             // Game Data Window
             RankingWindow = new Data_Ranking_Window();
-            RankingWindow.loc = new Vector2(320, 32);
-            RankingWindow.width = 120;
-            RankingWindow.height = 80;
+            RankingWindow.loc = new Vector2(320 * 2, 32 * 2); //new Poridur
+            RankingWindow.width = 120 * 2; //Poridur *2
+            RankingWindow.height = 80 * 2; //Poridur *2
             RankingWindow.stereoscopic = Config.DATA_TEAMS_DEPTH;
             // Counter
             Counter = new Play_Time_Counter();
-            Counter.loc = Game_Data_Window.loc + new Vector2(12, 48);
+            Counter.loc = Game_Data_Window.loc + new Vector2(12 * 2, 48 * 2); //Poridur
             Counter.stereoscopic = Config.DATA_DATA_DEPTH;
             // Labels
             Objective_Label = new Sprite();
             Objective_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Objective_Label.loc = Objective_Window.loc + new Vector2(16 - 2, 12 - 2);
-            Objective_Label.src_rect = new Rectangle(0, 96, 56, 16);
+            Objective_Label.loc = Objective_Window.loc + new Vector2(32 - 4, 24 - 4); //new Poridur (double v)
+            Objective_Label.src_rect = new Rectangle(0, 96 * 2, 56 * 2, 16 * 2); //Poridur *2
             Objective_Label.stereoscopic = Config.DATA_WINDOW_DEPTH;
             Defeat_Label = new Sprite();
             Defeat_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Defeat_Label.loc = Objective_Window.loc + new Vector2(16 - 2, 44 - 2);
-            Defeat_Label.src_rect = new Rectangle(56, 96, 40, 16);
+            Defeat_Label.loc = Objective_Window.loc + new Vector2(32 - 4, 88 - 4); //new Poridur (double v)
+            Defeat_Label.src_rect = new Rectangle(56 * 2, 96 * 2, 40 * 2, 16 *2); //Poridur *2
             Defeat_Label.stereoscopic = Config.DATA_WINDOW_DEPTH;
 
             Turn_Label = new Sprite();
             Turn_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Turn_Label.loc = Game_Data_Window.loc + new Vector2(8, 8);
-            Turn_Label.src_rect = new Rectangle(0, 112, 32, 16);
+            Turn_Label.loc = Game_Data_Window.loc + new Vector2(8 * 2, 8 * 2); //new Poridur (double V)
+            Turn_Label.src_rect = new Rectangle(0, 112 * 2, 32 * 2, 16 *2); //Poridur *2
             Turn_Label.stereoscopic = Config.DATA_DATA_DEPTH;
             Funds_Label = new Sprite();
             Funds_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Funds_Label.loc = Game_Data_Window.loc + new Vector2(8, 24);
-            Funds_Label.src_rect = new Rectangle(0, 128, 32, 16);
+            Funds_Label.loc = Game_Data_Window.loc + new Vector2(8 * 2, 24 * 2); //new Poridur (*2)
+            Funds_Label.src_rect = new Rectangle(0, 128 * 2, 32 * 2, 16 * 2); //Poridur *2
             Funds_Label.stereoscopic = Config.DATA_DATA_DEPTH;
             Gold_G = new Sprite();
             Gold_G.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Gold_G.loc = Game_Data_Window.loc + new Vector2(88 + 5, 24);
-            Gold_G.src_rect = new Rectangle(0, 160, 16, 16);
+            Gold_G.loc = Game_Data_Window.loc + new Vector2(88 *2 + 10, 24 * 2); //new Poridur (double v)
+            Gold_G.src_rect = new Rectangle(0, 160 * 2, 16 *2, 16 * 2); //Poridur *2
             Gold_G.stereoscopic = Config.DATA_DATA_DEPTH;
 
             Lv_Label = new Sprite();
             Lv_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Lv_Label.loc = UnitBg.loc + new Vector2(8, 40 + 0 - 2);
-            Lv_Label.src_rect = new Rectangle(32, 112, 16, 16);
+            Lv_Label.loc = UnitBg.loc + new Vector2(8 * 2, 40 * 2 + 0 - 4); //new Poridur *2
+            Lv_Label.src_rect = new Rectangle(32 * 2, 112 * 2, 16 * 2, 16 * 2); //Poridur *2
             Lv_Label.stereoscopic = Config.DATA_LEADER_DEPTH;
             Hp_Label = new Sprite();
             Hp_Label.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            Hp_Label.loc = UnitBg.loc + new Vector2(8, 40 + 12 - 2);
-            Hp_Label.src_rect = new Rectangle(48, 112, 24, 16);
+            Hp_Label.loc = UnitBg.loc + new Vector2(8 * 2, 40 * 2 + 24 - 4); //new Poridur
+            Hp_Label.src_rect = new Rectangle(48 * 2, 112 * 2, 24 * 2, 16 * 2); //Poridur *2
             Hp_Label.stereoscopic = Config.DATA_LEADER_DEPTH;
             TextSprite hp_slash = new TextSprite(); // why is this done so //@Yeti
-            hp_slash.loc = UnitBg.loc + new Vector2(44, 40 + 12);
+            hp_slash.loc = UnitBg.loc + new Vector2(44 * 2, 40 * 2 + 24); //new Poridur (double v)
             hp_slash.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             hp_slash.text = "/";
             Hp_Slash = hp_slash;
             Hp_Slash.stereoscopic = Config.DATA_LEADER_DEPTH;
             RatingLabel = new Sprite();
             RatingLabel.texture = Global.Content.Load<Texture2D>(@"Graphics/Windowskins/Data_Screen");
-            RatingLabel.loc = UnitBg.loc + new Vector2(72, 40 + 12 - 2);
-            RatingLabel.src_rect = new Rectangle(72, 112, 24, 16);
+            RatingLabel.loc = UnitBg.loc + new Vector2(72 * 2, 40 * 2 + 12 * 2 - 2 * 2); //new Poridur (double v)
+            RatingLabel.src_rect = new Rectangle(72 * 2, 112 * 2, 24 * 2, 16 * 2); //Poridur *2
             RatingLabel.stereoscopic = Config.DATA_LEADER_DEPTH;
 
             RankingLabel = new TextSprite();
-            RankingLabel.loc = RankingWindow.loc + new Vector2(24, 8);
+            RankingLabel.loc = RankingWindow.loc + new Vector2(24 * 2, 8 * 2); //new Poridur (double v)
             RankingLabel.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             RankingLabel.text = "Progress";
             RankingLabel.stereoscopic = Config.DATA_TEAMS_DEPTH;
             TurnsRankLabel = new TextSprite();
-            TurnsRankLabel.loc = RankingWindow.loc + new Vector2(8, 24);
+            TurnsRankLabel.loc = RankingWindow.loc + new Vector2(8 * 2, 24 * 2); //new Poridur (double v)
             TurnsRankLabel.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             TurnsRankLabel.text = "Turns";
             TurnsRankLabel.stereoscopic = Config.DATA_TEAMS_DEPTH;
             CombatRankLabel = new TextSprite();
-            CombatRankLabel.loc = RankingWindow.loc + new Vector2(8, 40);
+            CombatRankLabel.loc = RankingWindow.loc + new Vector2(8 * 2, 40 * 2); //new Poridur (double v)
             CombatRankLabel.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             CombatRankLabel.text = "Combat";
             CombatRankLabel.stereoscopic = Config.DATA_TEAMS_DEPTH;
             ExpRankLabel = new TextSprite();
-            ExpRankLabel.loc = RankingWindow.loc + new Vector2(8, 56);
+            ExpRankLabel.loc = RankingWindow.loc + new Vector2(8 * 2, 56 * 2); //new Poridur (double v)
             ExpRankLabel.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             ExpRankLabel.text = "Exp";
             ExpRankLabel.stereoscopic = Config.DATA_TEAMS_DEPTH;
 
             FileLabel = new TextSprite();
-            FileLabel.loc = FileBg.loc + new Vector2(8, 40);
+            FileLabel.loc = FileBg.loc + new Vector2(8 * 2, 40 * 2); //new Poridur (double v)
             FileLabel.SetFont(Config.UI_FONT, Global.Content, "Yellow");
             FileLabel.text = "File";
             FileLabel.stereoscopic = Config.DATA_LEADER_DEPTH;
 
             // Victory Text
             Victory_Text = new TextSprite();
-            Victory_Text.loc = Objective_Window.loc + new Vector2(68, 12);
+            Victory_Text.loc = Objective_Window.loc + new Vector2(68 * 2, 12 * 2); //new Poridur (double v)
             Victory_Text.SetFont(Config.UI_FONT, Global.Content, "White");
             Victory_Text.text = Global.game_system.Victory_Text;
             Victory_Text.stereoscopic = Config.DATA_WINDOW_DEPTH;
             // Loss Text
             Loss_Text = new TextSprite();
-            Loss_Text.loc = Objective_Window.loc + new Vector2(68, 44);
+            Loss_Text.loc = Objective_Window.loc + new Vector2(68 * 2, 44 * 2); //new Poridur (double v)
             Loss_Text.SetFont(Config.UI_FONT, Global.Content, "White");
             Loss_Text.text = Global.game_system.Loss_Text;
             Loss_Text.stereoscopic = Config.DATA_WINDOW_DEPTH;
 
             // Turn Text
             Turn = new RightAdjustedText();
-            Turn.loc = Game_Data_Window.loc + new Vector2(100, 8);
+            Turn.loc = Game_Data_Window.loc + new Vector2(100 * 2, 8 * 2); //new Poridur (double v)
             Turn.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Turn.text = Global.game_system.chapter_turn.ToString();
             Turn.stereoscopic = Config.DATA_DATA_DEPTH;
             // Funds Text
             Funds = new RightAdjustedText();
-            Funds.loc = Game_Data_Window.loc + new Vector2(92, 24);
+            Funds.loc = Game_Data_Window.loc + new Vector2(92 * 2, 24 * 2); //new Poridur (double v)
             Funds.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Funds.text = Global.battalion.gold.ToString();
             Funds.stereoscopic = Config.DATA_DATA_DEPTH;
 
             // Leader Name
             Leader_Name = new TextSprite();
-            Leader_Name.loc = UnitBg.loc + new Vector2(32 + 24, 12);
+            Leader_Name.loc = UnitBg.loc + new Vector2(32 * 2 + 24 * 2, 12 * 2); //new Poridur (double v)
             Leader_Name.SetFont(Config.UI_FONT, Global.Content, "White");
             Leader_Name.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Level
             Lvl = new RightAdjustedText();
-            Lvl.loc = UnitBg.loc + new Vector2(68, 40 + 0);
+            Lvl.loc = UnitBg.loc + new Vector2(68 * 2, 40 * 2 + 0); //new Poridur (double v)
             Lvl.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Lvl.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Hp
             Hp = new RightAdjustedText();
-            Hp.loc = UnitBg.loc + new Vector2(44, 40 + 12);
+            Hp.loc = UnitBg.loc + new Vector2(44 * 2, 40 * 2 + 12 * 2); //new Poridur (double v)
             Hp.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Hp.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Hp Max
             Hp_Max = new RightAdjustedText();
-            Hp_Max.loc = UnitBg.loc + new Vector2(68, 40 + 12);
+            Hp_Max.loc = UnitBg.loc + new Vector2(68 * 2, 40 * 2 + 12 * 2); //new Poridur (double v)
             Hp_Max.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Hp_Max.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Rating
             Rating = new RightAdjustedText();
-            Rating.loc = UnitBg.loc + new Vector2(120, 40 + 12);
+            Rating.loc = UnitBg.loc + new Vector2(120 * 2, 40 * 2 + 12 * 2); //new Poridur (double v)
             Rating.SetFont(Config.UI_FONT, Global.Content, "Blue");
             Rating.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Map Sprite
             Map_Sprite = new Character_Sprite();
             Map_Sprite.facing_count = 3;
             Map_Sprite.frame_count = 3;
-            Map_Sprite.loc = UnitBg.loc + new Vector2(20, 24);
+            Map_Sprite.loc = UnitBg.loc + new Vector2(20 * 2, 24 * 2); //new Poridur (double v)
             Map_Sprite.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Miniface
             Face = new Miniface();
-            Face.loc = UnitBg.loc + new Vector2(104, 8);
+            Face.loc = UnitBg.loc + new Vector2(104 * 2, 8 * 2); //new Poridur (double v)
             Face.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Weapon
             LeaderWeapon = new Item_Display();
-            LeaderWeapon.loc = UnitBg.loc + new Vector2(8, 28);
+            LeaderWeapon.loc = UnitBg.loc + new Vector2(8 * 2, 28 * 2); //new Poridur (double v)
             LeaderWeapon.stereoscopic = Config.DATA_LEADER_DEPTH;
 
             // File number
             FileNumber = new RightAdjustedText();
-            FileNumber.loc = FileBg.loc + new Vector2(40, 40);
+            FileNumber.loc = FileBg.loc + new Vector2(40 * 2, 40 * 2); //new Poridur (double v)
             FileNumber.SetFont(Config.UI_FONT, Global.Content, "Blue");
             FileNumber.text = Global.current_save_id.ToString();
             FileNumber.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Style
             StyleText = new TextSprite();
-            StyleText.loc = FileBg.loc + new Vector2(8, 8);
+            StyleText.loc = FileBg.loc + new Vector2(8 * 2, 8 * 2); //new Poridur (double v)
             StyleText.SetFont(Config.UI_FONT, Global.Content, "Blue");
             StyleText.text = Global.game_system.Style.ToString();
             StyleText.stereoscopic = Config.DATA_LEADER_DEPTH;
             // Difficulty
             DifficultyText = new TextSprite();
-            DifficultyText.loc = FileBg.loc + new Vector2(8, 24);
+            DifficultyText.loc = FileBg.loc + new Vector2(8 * 2, 24 * 2); //new Poridur (double v)
             DifficultyText.SetFont(Config.UI_FONT, Global.Content, "Blue");
             DifficultyText.text = Global.game_system.Difficulty_Mode.ToString();
             DifficultyText.stereoscopic = Config.DATA_LEADER_DEPTH;
 
             // Rank Letters
             TotalRankLetter = new TextSprite();
-            TotalRankLetter.loc = RankingWindow.loc + new Vector2(88, 8);
+            TotalRankLetter.loc = RankingWindow.loc + new Vector2(88 * 2, 8 * 2); //new Poridur (double v)
             TotalRankLetter.SetFont(Config.UI_FONT + "L", Global.Content, "Blue", Config.UI_FONT);
             TotalRankLetter.stereoscopic = Config.DATA_TEAMS_DEPTH;
             TurnsRankLetter = new TextSprite();
-            TurnsRankLetter.loc = RankingWindow.loc + new Vector2(104, 24);
+            TurnsRankLetter.loc = RankingWindow.loc + new Vector2(104 * 2, 24 * 2); //new Poridur (double v)
             TurnsRankLetter.SetFont(Config.UI_FONT + "L", Global.Content, "Blue", Config.UI_FONT);
             TurnsRankLetter.stereoscopic = Config.DATA_TEAMS_DEPTH;
             CombatRankLetter = new TextSprite();
-            CombatRankLetter.loc = RankingWindow.loc + new Vector2(104, 40);
+            CombatRankLetter.loc = RankingWindow.loc + new Vector2(104 * 2, 40 * 2); //new Poridur (double v)
             CombatRankLetter.SetFont(Config.UI_FONT + "L", Global.Content, "Blue", Config.UI_FONT);
             CombatRankLetter.stereoscopic = Config.DATA_TEAMS_DEPTH;
             ExpRankLetter = new TextSprite();
-            ExpRankLetter.loc = RankingWindow.loc + new Vector2(104, 56);
+            ExpRankLetter.loc = RankingWindow.loc + new Vector2(104 * 2, 56 * 2);  //new Poridur (double v)
             ExpRankLetter.SetFont(Config.UI_FONT + "L", Global.Content, "Blue", Config.UI_FONT);
             ExpRankLetter.stereoscopic = Config.DATA_TEAMS_DEPTH;
             // Rank Gauges
             TurnsBar = new Stat_Bar();
-            TurnsBar.loc = RankingWindow.loc + new Vector2(40, 32);
-            TurnsBar.offset = new Vector2(-2, 0);
+            TurnsBar.loc = RankingWindow.loc + new Vector2(40 * 2, 32 * 2);  //new Poridur (double v)
+            TurnsBar.offset = new Vector2(-2 * 2, 0); //new Poridur (double v)
             TurnsBar.bar_width = RANKING_BAR_LENGTH;
             TurnsBar.stereoscopic = Config.DATA_TEAMS_DEPTH;
             CombatBar = new Stat_Bar();
-            CombatBar.loc = RankingWindow.loc + new Vector2(40, 48);
-            CombatBar.offset = new Vector2(-2, 0);
+            CombatBar.loc = RankingWindow.loc + new Vector2(40 * 2, 48 * 2); //new Poridur (double v)
+            CombatBar.offset = new Vector2(-2 * 2, 0); //new Poridur (double v)
             CombatBar.bar_width = RANKING_BAR_LENGTH;
             CombatBar.stereoscopic = Config.DATA_TEAMS_DEPTH;
             ExpBar = new Stat_Bar();
-            ExpBar.loc = RankingWindow.loc + new Vector2(40, 64);
-            ExpBar.offset = new Vector2(-2, 0);
+            ExpBar.loc = RankingWindow.loc + new Vector2(40 * 2, 64 * 2); //new Poridur (double v)
+            ExpBar.offset = new Vector2(-2 * 2, 0); //new Poridur (double v)
             ExpBar.bar_width = RANKING_BAR_LENGTH;
             ExpBar.stereoscopic = Config.DATA_TEAMS_DEPTH;
 
             // Page Arrows
             Left_Page_Arrow = new Page_Arrow();
-            Left_Page_Arrow.loc = new Vector2(4, 72);
+            Left_Page_Arrow.loc = new Vector2(4 * 2, 72 * 2); //new Poridur (double v)
             Left_Page_Arrow.stereoscopic = Config.DATA_BANNER_DEPTH;
             Right_Page_Arrow = new Page_Arrow();
-            Right_Page_Arrow.loc = new Vector2(Config.WINDOW_WIDTH - 4, 72);
+            Right_Page_Arrow.loc = new Vector2(Config.WINDOW_WIDTH - 4 * 2, 72 * 2); //new Poridur (double v)
             Right_Page_Arrow.mirrored = true;
             Right_Page_Arrow.stereoscopic = Config.DATA_BANNER_DEPTH;
 
@@ -423,12 +423,12 @@ namespace Tactile.Windows.Map
             if (Team_Windows.Count == 0)
             {
                 Cursor.loc = TEAM_WINDOW_LOC;
-                Cursor.height = 8;
+                Cursor.height = 8 * 2; //new Poridur (double v)
             }
             else
             {
                 Cursor.loc = Team_Windows[Index].loc;
-                Cursor.height = (Groups[Index].Value + 1) * 16 + 8;
+                Cursor.height = (Groups[Index].Value + 1) * 32 + 8 * 2;  //Poridur *2 (16 -> 32)
             }
             int leader_id = -1;
             if (Groups.Count > 0)

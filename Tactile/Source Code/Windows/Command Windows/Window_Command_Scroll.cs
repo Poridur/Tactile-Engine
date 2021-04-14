@@ -60,7 +60,7 @@ namespace Tactile.Windows.Command
             Items.WrapVerticalMove = true;
 
             UICursor = new UICursor<CommandUINode>(Items);
-            UICursor.draw_offset = new Vector2(-16, 0);
+            UICursor.draw_offset = new Vector2(-16, 0); //Poridur should be changed
             UICursor.ratio = new int[] { 1, 1 };
         }
 
@@ -264,13 +264,13 @@ namespace Tactile.Windows.Command
         protected override void draw_bar(SpriteBatch sprite_batch)
         {
             //Vector2 loc = cursor_loc() + text_draw_vector() + Bar_Offset + new Vector2(8, 8); //Debug
-            Vector2 loc = cursor_loc() + base.text_draw_vector() + Bar_Offset + new Vector2(8, 8);
+            Vector2 loc = cursor_loc() + base.text_draw_vector() + Bar_Offset + new Vector2(16, 16);  //Poridur 8, 8 > 16, 16 //reverse?
             draw_bar(sprite_batch, loc);
         }
 
         protected void DrawFirstVisibleRow(SpriteBatch spriteBatch)
         {
-            if (Scroll * 16 == (int)(ScrollOffset.Y))
+            if (Scroll * 32 == (int)(ScrollOffset.Y)) //Poridur 16>32 //reverse?
             {
                 for (int i = 0; i < Columns; i++)
                 {
